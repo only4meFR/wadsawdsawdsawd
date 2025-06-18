@@ -841,7 +841,7 @@ function Library.CreateWindow(text)
 			TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
 			
 			if not Library.Flags[self.Flag] then
-				Library.Flags[self.Flag] = self.enabled
+				Library.Flags[self.Flag] = self.Default
 			end
 
 			self.Callback(Library.Flags[self.Flag])
