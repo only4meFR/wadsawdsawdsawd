@@ -55,19 +55,13 @@ Library.load_Flags()
 Library.clear()
 function Library:open()
 	self.Container.Visible = true
-	self.Shadow.Visible = true
 	self.Mobile.Modal = true
 	TweenService:Create(self.Container, TweenInfo.new(0.6, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
 		Size = UDim2.new(0, 699, 0, 426)
 	}):Play()
-	TweenService:Create(self.Shadow, TweenInfo.new(0.6, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
-		Size = UDim2.new(0, 776, 0, 509)
-	}):Play()
+	
 end
 function Library:close()
-	TweenService:Create(self.Shadow, TweenInfo.new(0.6, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
-		Size = UDim2.new(0, 0, 0, 0)
-	}):Play()
 	local main_tween = TweenService:Create(self.Container, TweenInfo.new(0.6, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
 		Size = UDim2.new(0, 0, 0, 0)
 	})
@@ -77,7 +71,6 @@ function Library:close()
 			return
 		end
 		self.Container.Visible = false
-		self.Shadow.Visible = false
 		self.Mobile.Modal = false
 	end)
 end
@@ -93,9 +86,7 @@ function Library:drag()
 	TweenService:Create(self.container.Container, TweenInfo.new(0.2), {
 		Position = position
 	}):Play()
-	TweenService:Create(self.container.Shadow, TweenInfo.new(0.2), {
-		Position = position
-	}):Play()
+	
 end
 function Library:visible()
 	Library.enabled = not Library.enabled
